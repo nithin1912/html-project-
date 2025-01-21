@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        #home h1 {
+            font-size: 3em;
+            color: #333;
+        }
+
+        .room {
+            display: inline-block;
+            width: 30%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .room img {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        form input, form select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#booking">Book a Room</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero">
+            <h1>Welcome to Our Luxury Hotel</h1>
+            <p>Experience comfort, elegance, and service like never before.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Our Hotel</h2>
+        <p>Our hotel offers world-class amenities and is located in the heart of the city. Enjoy the finest dining, luxurious rooms, and exceptional service during your stay.</p>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms">
+        <h2>Our Rooms</h2>
+        <div class="room">
+            <img src="https://th.bing.com/th?id=OIP.tQbpkv4HiLdVJziAhFHNzQHaHb&w=249&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Luxury Room">
+            <h3>Luxury Suite</h3>
+            <p>Elegant, spacious, and with stunning views.</p>
+        </div>
+        <div class="room">
+            <img src="https://th.bing.com/th?id=OIP.GpjhDn7Cwdk-NDo24lsczgHaE_&w=304&h=205&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Standard Room">
+            <h3>Standard Room</h3>
+            <p>Comfortable and affordable with all amenities.</p>
+        </div>
+        <div class="room">
+            <img src="https://th.bing.com/th/id/OIP.oG-qG62yHXn4Y183FERl3gHaEt?w=231&h=184&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Economy Room">
+            <h3>Economy Room</h3>
+            <p>Ideal for a short stay with basic necessities.</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking">
+        <h2>Book Your Room</h2>
+        <form id="booking-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required><br>
+            
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required><br>
+            
+            <label for="room-type">Room Type:</label>
+            <select id="room-type" name="room-type" required>
+                <option value="luxury">Luxury Suite</option>
+                <option value="standard">Standard Room</option>
+                <option value="economy">Economy Room</option>
+            </select><br>
+            
+            <button type="submit">Book Now</button>
+        </form>
+        <div id="confirmation-message"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to contact us!</p>
+        <p>Email: nitninnithin@gmail.com</p>
+        <p>Phone: +91 9487772210</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Luxury Hotel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let checkin = document.getElementById('checkin').value;
+            let checkout = document.getElementById('checkout').value;
+            let roomType = document.getElementById('room-type').value;
+
+            let confirmationMessage = `Thank you for booking with us, ${name}! Your reservation details are as follows:
+            Room Type: ${roomType.charAt(0).toUpperCase() + roomType.slice(1)} 
+            Check-in Date: ${checkin}
+            Check-out Date: ${checkout}`;
+
+            document.getElementById('confirmation-message').innerText = confirmationMessage;
+
+            // Optionally, reset the form after submission
+            document.getElementById('booking-form').reset();
+        });
+    </script>
+
+</body>
+</html>
